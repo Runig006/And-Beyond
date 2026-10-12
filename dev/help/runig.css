@@ -1,0 +1,176 @@
+/* Los Parches de Runig: the look of the patches' pages (help, notes). A doctor's note on paper: letterhead,
+   typewritten fields, red rubber stamp, blue-ink notes by hand and tick boxes. System fonts only (the page must
+   work offline). Each page keeps its own copy of this file next to it. */
+:root {
+  --desk: #1d2326;
+  --paper: #fbf8ef;
+  --paper2: #f3eee0;
+  --line: #c9c0aa;
+  --rule: #e4ddca;
+  --ink: #23262b;
+  --muted: #6b675d;
+  --blue: #1f3f8f;
+  --red: #b3261e;
+  --green: #2f6b4f;
+  --serif: Georgia, "Times New Roman", Times, serif;
+  --type: "Courier New", Courier, Consolas, monospace;
+  --hand: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+}
+* { box-sizing: border-box; }
+html { background: var(--desk); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 16px/1.6 var(--serif);
+  background-color: var(--desk);
+  /* low-poly teal floor, like the user's banner; the sheet lies on it */
+  background-image:
+    linear-gradient(135deg, rgba(76,199,182,.05) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255,255,255,.025) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(76,199,182,.04) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(0,0,0,.18) 25%, transparent 25%);
+  background-size: 120px 120px;
+}
+.wrap { max-width: 900px; margin: 0 auto 40px; padding: 0 16px; }
+.chunky { font-family: var(--serif); font-weight: 700; }
+
+/* --- language tabs: index tabs sticking out of the top of the sheet --- */
+nav.langs { display: flex; flex-wrap: wrap; gap: 3px; margin: 22px 0 0 28px; }
+nav.langs button {
+  background: var(--paper2); color: var(--muted); border: 1px solid var(--line); border-bottom: none;
+  border-radius: 5px 5px 0 0; padding: 5px 14px 4px; font: 14px var(--serif); cursor: pointer;
+}
+nav.langs button:hover { color: var(--ink); }
+nav.langs button[aria-pressed="true"] { background: var(--paper); color: var(--ink); font-weight: 700; }
+
+/* --- the sheet: the letterhead, every section and the signature sit on it --- */
+header.banner, section.card, footer {
+  background: var(--paper);
+  border-left: 1px solid var(--line); border-right: 1px solid var(--line);
+  padding-left: 56px; padding-right: 56px;
+}
+
+/* --- letterhead --- */
+header.banner {
+  position: relative;
+  margin: 0; padding-top: 34px; padding-bottom: 22px;
+  border-top: 1px solid var(--line);
+}
+header.banner::after { /* the letterhead's double rule */
+  content: ""; position: absolute; left: 56px; right: 56px; bottom: 0;
+  border-top: 3px double var(--ink);
+}
+.tab {
+  display: inline-block;
+  font: 400 14px var(--serif); letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+}
+.tab::first-letter { color: var(--red); font-size: 22px; font-weight: 900; }
+.eyebrow { margin-top: 6px; color: var(--muted); font-style: italic; font-size: 15px; }
+h1 {
+  margin: 4px 0 2px; color: var(--ink);
+  font-size: clamp(28px, 5vw, 42px); line-height: 1.1; font-weight: 700; letter-spacing: -.01em;
+}
+h1 small { display: block; font-size: .55em; font-style: italic; font-weight: 400; color: var(--muted); margin-top: 2px; }
+.tagline { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 14px; }
+.urgent { /* rubber stamp */
+  display: inline-block; transform: rotate(-3deg);
+  border: 2px solid var(--red); color: var(--red); border-radius: 3px;
+  padding: 2px 10px; font: 700 14px var(--type); letter-spacing: .14em; text-transform: uppercase;
+  opacity: .85;
+}
+.tagline p { margin: 0; font-size: 17px; font-style: italic; }
+.side { position: absolute; top: 30px; right: 56px; display: flex; gap: 8px; }
+.board { border: 1px solid var(--ink); padding: 3px 10px; text-align: center; background: var(--paper); }
+.board .k { display: block; font-size: 10px; letter-spacing: .16em; color: var(--muted); text-transform: uppercase; }
+.board .v { display: block; font-family: var(--type); font-weight: 700; }
+.board.turn .v { font-family: var(--hand); color: var(--blue); font-size: 20px; line-height: 1.2; font-weight: 400; }
+@media (max-width: 760px) {
+  .side { position: static; margin: 12px 0 0; }
+}
+
+/* --- patient card: a form filled on the typewriter --- */
+.patient { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; }
+.fields { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px 24px; margin: 0; }
+.fields div { border-bottom: 1px dotted var(--muted); padding-bottom: 2px; }
+.fields dt { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.fields dd { margin: 0; font-family: var(--type); font-weight: 700; font-size: 15px; }
+.stamp {
+  transform: rotate(-9deg); border: 4px double var(--red); color: var(--red); border-radius: 50%;
+  width: 132px; height: 132px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font: 700 22px var(--type); text-transform: uppercase; letter-spacing: .06em; opacity: .8;
+}
+.stamp small { display: block; font: 700 11px var(--type); letter-spacing: .14em; margin-top: 4px; }
+.vitals {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-top: 18px; border: 1px solid var(--ink);
+}
+.vital { padding: 6px 12px; border-right: 1px solid var(--line); }
+.vital:last-child { border-right: none; }
+.vital .k { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.vital .v { display: block; font-family: var(--hand); font-weight: 400; color: var(--blue); font-size: 24px; line-height: 1.3; }
+.vital .ok { color: var(--green); font-size: 13px; font-style: italic; }
+@media (max-width: 640px) { .patient { grid-template-columns: 1fr; } .stamp { justify-self: start; } }
+
+/* --- sections of the report --- */
+section.card { margin: 0; padding-top: 22px; padding-bottom: 6px; position: relative; }
+section.card h2 {
+  margin: 0 0 10px; font-size: 19px; font-weight: 700; font-variant: small-caps; letter-spacing: .04em;
+  border-bottom: 1px solid var(--ink); padding-bottom: 3px;
+  display: flex; align-items: baseline; gap: 8px;
+}
+section.card h2 .num { font-family: var(--type); font-size: 16px; }
+section.card h2 .num::after { content: "."; }
+section.card h2 .sub { font-size: 13px; color: var(--muted); font-weight: 400; font-style: italic; font-variant: normal; }
+section.card p { margin: 0 0 8px; }
+ul.items { margin: 0 0 8px; padding: 0; list-style: none; }
+ul.items li { position: relative; padding: 5px 0 5px 22px; border-bottom: 1px solid var(--rule); }
+ul.items li:last-child { border-bottom: none; }
+ul.items li::before { content: "\2013"; position: absolute; left: 4px; color: var(--muted); }
+.symptoms li::before { content: "\2717"; color: var(--red); }
+.leaflet li::before { content: "!"; color: var(--red); font-weight: 700; left: 7px; }
+
+/* --- options: one prescription each, with tick boxes for the values --- */
+.opts { display: grid; }
+.opt { padding: 10px 0 10px 34px; position: relative; border-bottom: 1px solid var(--rule); display: grid; gap: 3px; }
+.opt:last-child { border-bottom: none; }
+.opt::before { content: "\211E"; position: absolute; left: 2px; top: 6px; font-size: 22px; color: var(--muted); }
+.opt .head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; }
+.opt .name { font-family: var(--type); font-weight: 700; font-size: 16px; }
+.vals { display: flex; flex-wrap: wrap; gap: 2px 12px; }
+.val { font-family: var(--type); font-size: 14px; color: var(--muted); }
+.val::before { content: "\2610\00a0"; }
+.val.def { color: var(--ink); font-weight: 700; }
+.val.def::before { content: "\2612\00a0"; color: var(--blue); }
+.why { font-family: var(--hand); color: var(--blue); font-size: 14px; line-height: 1.5; }
+.why b { font-weight: 400; text-decoration: underline; }
+.legend { font-size: 14px; color: var(--muted); font-style: italic; margin-bottom: 6px; }
+.legend .val { margin: 0 4px; }
+
+code, kbd {
+  font-family: var(--type); font-size: .92em; background: var(--paper2); border: 1px solid var(--line);
+  border-radius: 2px; padding: 0 4px;
+}
+.small { font-size: 13px; color: var(--muted); }
+
+/* --- bottom of the sheet: the doctor's signature --- */
+footer {
+  padding-top: 26px; padding-bottom: 34px; text-align: right; color: var(--muted); font-size: 14px; font-style: italic;
+  border-bottom: 1px solid var(--line); box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
+}
+footer .chunky {
+  display: inline-block; min-width: 240px; text-align: center; margin-bottom: 4px;
+  font: 400 26px var(--hand); color: var(--blue);
+  border-bottom: 1px solid var(--ink); padding: 0 12px 2px;
+}
+footer .chunky + span { display: block; }
+
+@media (max-width: 640px) {
+  header.banner, section.card, footer { padding-left: 20px; padding-right: 20px; }
+  header.banner::after { left: 20px; right: 20px; }
+  .side { margin-top: 12px; }
+}
+@media print {
+  html, body { background: #fff; }
+  nav.langs { display: none; }
+  header.banner, section.card, footer { border: none; box-shadow: none; }
+}

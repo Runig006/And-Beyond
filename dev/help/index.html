@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runig Fix · Buzz Lightyear of Star Command</title>
+<link rel="stylesheet" href="runig.css">
+</head>
+<body>
+<div class="wrap">
+
+<nav class="langs" aria-label="Language"></nav>
+
+<header class="banner">
+  <div class="tab chunky">+ <span data-t="tab"></span></div>
+  <div class="side">
+    <div class="board"><span class="k" data-t="room"></span><span class="v">Windows 11</span></div>
+    <div class="board turn"><span class="k" data-t="patch"></span><span class="v chunky">1.0</span></div>
+  </div>
+  <div class="eyebrow" data-t="eyebrow"></div>
+  <h1 class="chunky">Buzz Lightyear of Star Command <small data-t="beyond"></small></h1>
+  <div class="tagline">
+    <span class="urgent" data-t="urgent"></span>
+    <p data-t="tagline"></p>
+  </div>
+</header>
+
+<section class="card">
+  <h2><span data-t="h_patient"></span></h2>
+  <div class="patient">
+    <dl class="fields" data-fields="fields"></dl>
+    <div class="stamp chunky"><span data-t="stamp"></span><small data-t="stamp_by"></small></div>
+  </div>
+  <div class="vitals" data-vitals="vitals"></div>
+</section>
+
+<section class="card">
+  <h2><span class="num">1</span><span data-t="h_reason"></span></h2>
+  <p data-t="reason_intro"></p>
+  <ul class="items symptoms" data-list="symptoms"></ul>
+</section>
+
+<section class="card">
+  <h2><span class="num">2</span><span data-t="h_always"></span></h2>
+  <p data-t="always_intro"></p>
+  <ul class="items" data-list="always"></ul>
+</section>
+
+<section class="card">
+  <h2><span class="num">3</span><span data-t="h_options"></span></h2>
+  <p data-t="options_intro"></p>
+  <div class="legend"><span data-t="legend"></span></div>
+  <div class="opts"></div>
+</section>
+
+<section class="card">
+  <h2><span class="num">4</span><span data-t="h_installer"></span></h2>
+  <ul class="items" data-list="installer"></ul>
+</section>
+
+<section class="card">
+  <h2><span class="num">5</span><span data-t="h_leaflet"></span></h2>
+  <ul class="items leaflet" data-list="leaflet"></ul>
+</section>
+
+<section class="card">
+  <h2><span class="num">6</span><span data-t="h_small"></span></h2>
+  <ul class="items" data-list="small"></ul>
+</section>
+
+<footer>
+  <span class="chunky">Los Parches de Runig</span>
+  <span data-t="footer"></span>
+</footer>
+
+</div>
+
+<!-- help.js draws the page; each lang/xx.js holds one language (a new language = one more file and line) -->
+<script>var INSTALLED_LANG = "__LANG__"; // the installer writes its language here</script>
+<script src="help.js"></script>
+<script src="lang/es.js"></script>
+<script src="lang/en.js"></script>
+<script src="lang/fr.js"></script>
+<script src="lang/de.js"></script>
+<script src="lang/it.js"></script>
+<script src="lang/pt.js"></script>
+</body>
+</html>

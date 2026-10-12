@@ -1,0 +1,15 @@
+/*
+!/.gitignore
+!/.gitattributes
+!/README.md
+!/LICENSE
+
+!/dev/
+/dev/*
+!/dev/patch_src/
+!/dev/installer_src/
+!/dev/help/
+!/dev/lang/
+
+build/
+/dev/patch_src/deploy.bat

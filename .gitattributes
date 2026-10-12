@@ -1,0 +1,2 @@
+# Shell scripts keep Unix line endings (bash in MSYS2 does not take CRLF)
+*.sh text eol=lf

@@ -1,0 +1,28 @@
+// Resources built into DDraw.dll
+#include <winver.h>
+#include "version.h"
+
+SHADER_HLSL RCDATA "shader.hlsl"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION PATCH_VERSION_MAJOR, PATCH_VERSION_MINOR, PATCH_BUILD_DAY, PATCH_BUILD_MINUTE
+PRODUCTVERSION PATCH_VERSION_MAJOR, PATCH_VERSION_MINOR, 0, 0
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_DLL
+BEGIN
+	BLOCK "StringFileInfo"
+	BEGIN
+		BLOCK "040904b0"
+		BEGIN
+			VALUE "FileDescription", "Buzz Lightyear of Star Command & Beyond (unofficial patch)"
+			VALUE "FileVersion", PATCH_VERSION_TEXT
+			VALUE "ProductName", "Buzz Lightyear of Star Command & Beyond"
+			VALUE "ProductVersion", PATCH_VERSION_TEXT
+			VALUE "OriginalFilename", "DDraw.dll"
+		END
+	END
+	BLOCK "VarFileInfo"
+	BEGIN
+		VALUE "Translation", 0x0409, 1200
+	END
+END

@@ -1,0 +1,4 @@
+LIBRARY DDraw
+EXPORTS
+    DirectDrawCreate=BuzzDirectDrawCreate
+    DirectDrawEnumerateA=BuzzDirectDrawEnumerateA
