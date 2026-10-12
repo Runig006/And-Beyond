@@ -1,3 +1,5 @@
+![Buzz Lightyear of Star Command …& Beyond](.github/banner.jpg)
+
 # …& Beyond
 
 **Unofficial fan patch for the PC game *Buzz Lightyear of Star Command* (2000)** and its installer.
