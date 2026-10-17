@@ -261,7 +261,10 @@ static void Apply(int lang)
 		}
 		unsigned value = g_original[i];
 		const char *text = nullptr;
-		if (!own) {
+		if (!own && !*s.text) {
+			// The second line of a text this buzz.exe writes in two: the whole translation is on the first
+			text = EnglishText("");
+		} else if (!own) {
 			auto it = table.find(s.text);
 			text = it != table.end() ? it->second : lang == 0 ? EnglishText(s.text) : nullptr;
 		}

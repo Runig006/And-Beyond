@@ -261,6 +261,8 @@ static const LangSite kLangSites_es[] = {
 	{"press enter to accept changes", 0x004f7888, 0x004f7600},
 	{"() - to change", 0x004f78a8, 0x004f75f0},
 	{"select option and press enter", 0x004f78b8, 0x004f75e0},
+	{"star command options", 0x004f970c, 0x0043c692},
+	{"", 0x004f971c, 0x0043c6ab},
 	{"mission 1", 0x004f9734, 0x0043b7f8},
 	{"mission 1", 0x004f9734, 0x0043b809},
 	{"mission 1", 0x004f9734, 0x0043c6c9},
