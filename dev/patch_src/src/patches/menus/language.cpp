@@ -212,6 +212,22 @@ static std::map<std::string, const char *> LoadTable(const char *code)
 	return table;
 }
 
+// English in another version: a copy of the list's text, which the game may write into like its own (the level
+// select puts the number into "mission 1"); the list's is read-only
+static const char *EnglishText(const char *text)
+{
+	static std::map<std::string, const char *> copies;
+	auto it = copies.find(text);
+	if (it != copies.end()) {
+		return it->second;
+	}
+	size_t len = strlen(text);
+	char *copy = new char[len + 8]();
+	memcpy(copy, text, len);
+	copies[text] = copy;
+	return copy;
+}
+
 static bool HasTable(int lang)
 {
 	char path[MAX_PATH];
@@ -247,7 +263,7 @@ static void Apply(int lang)
 		const char *text = nullptr;
 		if (!own) {
 			auto it = table.find(s.text);
-			text = it != table.end() ? it->second : lang == 0 ? s.text : nullptr;
+			text = it != table.end() ? it->second : lang == 0 ? EnglishText(s.text) : nullptr;
 		}
 		if (text) {
 			// Some places point inside the string (" rotational" read from its second letter); a buzz.exe already
